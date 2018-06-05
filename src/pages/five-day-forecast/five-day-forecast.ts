@@ -17,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class FiveDayForecastPage implements OnInit {
 	weather: any[] = [];
   cityName;
-  show;
+  shownGroup = null;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private weatherProdiver: WeatherProvider) {
 	}
@@ -26,12 +26,19 @@ export class FiveDayForecastPage implements OnInit {
 		console.log(this.weather);
 
   }
-  display() {
-     this.show != this.show;
-  }
+  toggleGroup(group) {
+    if (this.isGroupShown(group)) {
+        this.shownGroup = null;
+    } else {
+        this.shownGroup = group;
+    }
+};
+isGroupShown(group) {
+    return this.shownGroup === group;
+};
 
 	ngOnInit(): void {
-		this.weatherProdiver.getFiveDayForecast('Johanessburg')
+		this.weatherProdiver.getFiveDayForecast('bloemfontein')
 			.subscribe((res) => {
 				const data = res['data'];
 				this.cityName  = res['city_name'];

@@ -13,39 +13,41 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content fullScreen>
+  <img src="assets/imgs/few clouds.jpg" alt="" id="img">
   <h2 center> {{cityName}} </h2>
-    <ion-card *ngFor="let day of weather; let i =index;" id="accordion">
-      <ion-card-header>
-          <button (click)="display()" > <strong>Date</strong>  {{day.date}} {{i}}</button>
-      </ion-card-header>
+  <ion-card *ngFor="let day of weather; let i =index;" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+    <ion-card-header *ngIf="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'" id="header"> <span item-start id="date">{{day.date}}</span>
 
-      <ion-card-content  >
-
-          <ion-item>
-              <strong>Temp:</strong> {{ day.temp}}&deg;
-            </ion-item>
-            <ion-item>
-                <strong>Description</strong> {{ day.description}}&deg;
-              </ion-item>
-            <ion-item>
-              <strong>clouds:</strong> {{ day.clouds}}&#37;
-            </ion-item>
-            <ion-item>
-              <strong>Visibility:</strong> {{ day.vis}}
-            </ion-item>
-            <ion-item>
-              <strong>uv:</strong> {{ day.uv}}
-            </ion-item>
-            <ion-item>
-              <strong>Wind Direction:</strong> {{ day.windDir}}
-            </ion-item>
-            <ion-item>
-              <strong>Min Temp</strong> {{ day.min_temp}}&deg;
-            </ion-item>
-            <ion-item>
-                <strong>Max Temp</strong> {{ day.max_temp}}&deg;
-              </ion-item>
-      </ion-card-content>
-    </ion-card>
+      <ion-icon name="list" id="icc" item-end></ion-icon>
+    </ion-card-header>
+    <section *ngIf="isGroupShown(i)">
+      <!-- {{ weather }} -->
+      <ion-item>
+        <strong>Temp:</strong> {{ day.temp}}&deg;
+      </ion-item>
+      <ion-item>
+        <strong>Description</strong> {{ day.description}}&deg;
+      </ion-item>
+      <ion-item>
+        <strong>clouds:</strong> {{ day.clouds}}&#37;
+      </ion-item>
+      <ion-item>
+        <strong>Visibility:</strong> {{ day.vis}}
+      </ion-item>
+      <ion-item>
+        <strong>uv:</strong> {{ day.uv}}
+      </ion-item>
+      <ion-item>
+        <strong>Wind Direction:</strong> {{ day.windDir}}
+      </ion-item>
+      <ion-item>
+        <strong>Min Temp</strong> {{ day.min_temp}}&deg;
+      </ion-item>
+      <ion-item>
+        <strong>Max Temp</strong> {{ day.max_temp}}&deg;
+      </ion-item>
+    </section>
+  </ion-card>
 </ion-content>
+

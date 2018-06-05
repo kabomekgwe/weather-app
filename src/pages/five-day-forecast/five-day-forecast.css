@@ -1,3 +1,11 @@
+page-five-day-forecast #img {
+  position: fixed;
+  z-index: -1;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
 page-five-day-forecast #accordion section ion-item {
   display: none;
 }
@@ -13,4 +21,19 @@ page-five-day-forecast #accordion section a:hover {
 
 page-five-day-forecast #accordion section:target ion-item {
   display: block;
+}
+
+page-five-day-forecast #icc {
+  font-size: 35px;
+}
+
+page-five-day-forecast #header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #918471;
+  color: white;
+}
+
+page-five-day-forecast #header #date {
+  margin-top: 8px;
 }
