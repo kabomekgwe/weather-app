@@ -1,0 +1,16 @@
+page-five-day-forecast #accordion section ion-item {
+  display: none;
+}
+
+page-five-day-forecast #accordion section a {
+  color: black;
+  text-decoration: none;
+}
+
+page-five-day-forecast #accordion section a:hover {
+  text-decoration: underline;
+}
+
+page-five-day-forecast #accordion section:target ion-item {
+  display: block;
+}

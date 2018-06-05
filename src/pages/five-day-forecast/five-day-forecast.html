@@ -1,0 +1,51 @@
+<!--
+  Generated template for the FiveDayForecastPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>FiveDayForecast</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2 center> {{cityName}} </h2>
+    <ion-card *ngFor="let day of weather; let i =index;" id="accordion">
+      <ion-card-header>
+          <button (click)="display()" > <strong>Date</strong>  {{day.date}} {{i}}</button>
+      </ion-card-header>
+
+      <ion-card-content  >
+
+          <ion-item>
+              <strong>Temp:</strong> {{ day.temp}}&deg;
+            </ion-item>
+            <ion-item>
+                <strong>Description</strong> {{ day.description}}&deg;
+              </ion-item>
+            <ion-item>
+              <strong>clouds:</strong> {{ day.clouds}}&#37;
+            </ion-item>
+            <ion-item>
+              <strong>Visibility:</strong> {{ day.vis}}
+            </ion-item>
+            <ion-item>
+              <strong>uv:</strong> {{ day.uv}}
+            </ion-item>
+            <ion-item>
+              <strong>Wind Direction:</strong> {{ day.windDir}}
+            </ion-item>
+            <ion-item>
+              <strong>Min Temp</strong> {{ day.min_temp}}&deg;
+            </ion-item>
+            <ion-item>
+                <strong>Max Temp</strong> {{ day.max_temp}}&deg;
+              </ion-item>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
